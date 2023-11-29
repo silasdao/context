@@ -231,9 +231,7 @@ def main():
                 # Add to messages
                 messages.append({"role": "assistant", "content": full_response})
 
-                # Execute code blocks
-                code_blocks = extract_code_blocks(full_response)
-                if code_blocks:
+                if code_blocks := extract_code_blocks(full_response):
                     while True:
                         user_response = input("Run code? (y/n): ")
                         if user_response not in ["y", "n"]:
